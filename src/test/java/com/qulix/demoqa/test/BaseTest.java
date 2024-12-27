@@ -11,6 +11,9 @@ import org.testng.annotations.AfterMethod;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
+//TODO Класс висит в воздухе, хотя по идее может быть использован уже с первых занятий
+//TODO Корректнее внутри BaseTest класса оставить реализацию только методов прямо влияющих на ход выполнения теста
+//TODO Вот такие common вещи типа openWebSite стоит реализовывать, например, в Steps классе, или какой-нить BrowserActions
 public abstract class BaseTest {
 
     protected WebDriver webDriver;

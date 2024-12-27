@@ -13,9 +13,24 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
+// TODO: Лекция 2 у нас про testNG и формально мы еще не знаем кто и что такое Selenium.
+//   Потому для этого урока логичнее сделать пример, в котором нет Selenium
+//   Можно, например, написать свой класс Calculator
+//       .plus(x,y)
+//       .multiply(x,y)
+//       .divide(x,y)
+//       .minus(x,y)
+//
+// TODO:  И далее на примерах показать и dataDriven подход и группы
+//  (например, negativeValues, decimalValues, negativeTests, positiveTests)
+//  и через разные варианты testng.xml показать как можно управлять ходом выполнения через XML
+//
+// TODO: По-хорошему тут показать максимально работу разных аннотаций
 public class Lesson2Test {
     WebDriver webDriver;
 
+    // TODO Пока можно не загоняться на config file и переменные.
+    //  Но хотя бы вынести в отдельный класс типа Configuration или Environment стоит
     private final String PRACTICE_FORM_URL = "https://demoqa.com/automation-practice-form";
     //Locators
     private final By PRACTICE_FORM_TITLE = By.xpath("//h1[contains(text(), 'Practice Form')]");
@@ -35,6 +50,8 @@ public class Lesson2Test {
         webDriver.quit();
     }
 
+    // TODO: Тут и везде, @Step обязательно с текстом: @Step("Открытие страницы {linkUrl}")
+    // TODO: linkUrl, а не linkURL. Тоже везде, где встречается
     @Step
     public void openWebsite(String linkURL) {
         webDriver = new ChromeDriver();
