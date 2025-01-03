@@ -19,5 +19,4 @@ public class BookStoreApplicationPage extends BasePage {
     BookStoreApplicationPage(WebDriver webDriver) {
         super(webDriver);
     }
-
 }

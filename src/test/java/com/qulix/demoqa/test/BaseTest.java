@@ -22,6 +22,7 @@ import java.util.List;
 //TODO Вот такие common вещи типа openWebSite стоит реализовывать, например, в Steps классе, или какой-нить BrowserActions
 //ANSWER мне показалось логичным поместить его в этом классе, потому что он переиспользуется в каждом тесте
 // не поняла, что ты имеешь в виду под Steps классом
+
 public abstract class BaseTest {
 
     static final Logger log = LoggerFactory.getLogger(BaseTest.class);
