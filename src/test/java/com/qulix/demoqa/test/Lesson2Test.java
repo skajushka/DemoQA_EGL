@@ -1,68 +1,35 @@
 package com.qulix.demoqa.test;
 
-import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
+import com.qulix.demoqa.Calculator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
-
 public class Lesson2Test {
-    WebDriver webDriver;
 
-    private final String PRACTICE_FORM_URL = "https://demoqa.com/automation-practice-form";
-    //Locators
-    private final By PRACTICE_FORM_TITLE = By.xpath("//h1[contains(text(), 'Practice Form')]");
-    private final By REGISTRATION_FORM_TITLE = By.xpath("//h5[contains(text(), 'Student Registration Form')]");
-    private final By FIRST_NAME_FIELD = By.id("firstName");
-    private final By LAST_NAME_FIELD = By.id("lastName");
+    static final Logger log = LoggerFactory.getLogger(Lesson2Test.class);
+    Calculator calculator = new Calculator();
 
-    @Test
-    public void openWebsite() throws MalformedURLException {
-        //open web page
-        openWebsite(PRACTICE_FORM_URL);
-
-        //verify elements
-        verifyElementsOnPage();
-
-        //close browser
-        webDriver.quit();
+    /*@Parameters({"firstNumber", "secondNumber", "expResult"})
+    @Test (description = "Testing sum calculations")*/
+    @Test (description = "Testing sum calculations", dataProvider = "data-provider")
+    public void testCalculation(int firstNumber, int secondNumber, int expResult) {
+        int actResult = calculator.plus(firstNumber, secondNumber);
+        Assert.assertEquals(actResult, expResult);
+        log.info("Actual result matches expected result");
     }
 
-    @Step
-    public void openWebsite(String linkURL) {
-        webDriver = new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
-        webDriver.manage().window().maximize();
-        webDriver.get(linkURL);
-        System.out.println("Website is opened.");
+    Object[][] data={
+            {2, 3, 5},
+            {5, 7, 9},
+            {13, 4, 17},
+            {213, 132, 345}
+    };
+
+    @DataProvider(name = "data-provider")
+    public Object[][] dataProviderMethod(){
+        return data;
     }
-
-    @Step
-    public WebElement findPageElement(By locator) {
-        WebElement webElement = webDriver.findElement(locator);
-
-        if (!webElement.isDisplayed()) {
-            Actions actions = new Actions(webDriver);
-            actions.moveToElement(webElement).build().perform();
-        }
-
-        return webElement;
-    }
-
-    @Step
-    public void verifyElementsOnPage() {
-        Assert.assertTrue(findPageElement(PRACTICE_FORM_TITLE).isDisplayed());
-        Assert.assertTrue(findPageElement(REGISTRATION_FORM_TITLE).isDisplayed());
-        Assert.assertTrue(findPageElement(FIRST_NAME_FIELD).isDisplayed());
-        Assert.assertTrue(findPageElement(LAST_NAME_FIELD).isDisplayed());
-        System.out.println("Page elements are verified");
-    }
-
 }
