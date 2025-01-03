@@ -15,6 +15,10 @@ import java.util.List;
 
 public class BookStoreApplicationPage extends BasePage {
 
+    // TODO Не каждый final обязывает именовать переменные UPPER_CASE
+    //   По-хорошему UPPER_CASE только public static final, т.е. публичные static константы
+    //   Локальные final non static поля вообще не нуждаются в отдельном синтаксисе ни по какому из соглашений
+    //   Локальные final static поля могут иметь UPPER_CASE, если это оправдано. Но для локаторов, я считаю, это избыточно
     private final By BOOK_STORE_CARD_UP = By.xpath("//h5[contains(text(), 'Book Store Application')]/parent::div/preceding-sibling::div/preceding-sibling::div");
     private final By SEARCH_BOX = By.id("searchBox");
     private final By SEARCH_BOX_BUTTON = By.id("basic-addon2");
@@ -27,6 +31,8 @@ public class BookStoreApplicationPage extends BasePage {
 
     @Step
     public void openWebsite(String linkURL) {
+        // TODO Ну инициализации тут точно быть не должно, максимум просто переход по ссылке
+        //   Но тогда ссылка хранится внутри класса, а не приходит как внешний параметр
         webDriver = new ChromeDriver();
         webDriver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
         webDriver.manage().window().maximize();
