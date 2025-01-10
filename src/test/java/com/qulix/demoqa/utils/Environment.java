@@ -6,6 +6,9 @@ public class Environment {
     private final String startPageUrl = "https://demoqa.com/";
     private final String bookStorePageUrl = "https://demoqa.com/books";
 
+    public Environment() {
+    }
+
     public String getPracticeFormUrl() {
         return practiceFormUrl;
     }

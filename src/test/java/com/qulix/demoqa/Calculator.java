@@ -5,16 +5,16 @@ public class Calculator {
     public Calculator() {
     }
 
-    public int plus (int firstNumber, int secondNumber) {
+    public double plus (double firstNumber, double secondNumber) {
         return firstNumber + secondNumber;
     }
-    public int minus (int firstNumber, int secondNumber) {
+    public double minus (double firstNumber, double secondNumber) {
         return firstNumber - secondNumber;
     }
-    public int multiply (int firstNumber, int secondNumber) {
+    public double multiply (double firstNumber, double secondNumber) {
         return firstNumber * secondNumber;
     }
-    public int divide (int firstNumber, int secondNumber) {
+    public double divide (double firstNumber, double secondNumber) {
         return firstNumber / secondNumber;
     }
 }

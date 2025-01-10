@@ -14,32 +14,18 @@ public class Lesson4Test extends BaseTest{
     //Locators
     private final By searchBox = By.id("searchBox");
     private final By searchBoxButton = By.id("basic-addon2");
-    private final By bookStoreCard = By.xpath("//div[@class='card-body']/h5[contains(text(), 'Book Store Application')]");
     private final By bookTitle = By.xpath("//div[@class='rt-td']//a[contains(text(), 'Git')]");
 
     @Test
     public void findGitBooksTest() {
         //open site
-        //TODO Это SetUp
-        // ANSWER: не поняла. У нас этот метод открывает разные страницы в начале текстов.
-        // имеется в виду, что надо переименовать ли поменять реализацию?
-        openWebsite(new Environment().getBookStorePage());
+        openWebsite(new Environment().getBookStorePageUrl());
 
-        //go to the Book Store
-        //TODO Какой-то сложноватый блок для старта, там прямо надо скролить?
-        //DONE убрала
+        //locate search box
+        WebElement searchBox = findPageElement(this.searchBox);
+        waitElementToBeClickable(searchBox);
 
         //type in search request
-        //TODO
-        // 1. Я бы не стал в этом уроке объявлять и использовать локаторы как поля класса, особенно в формате UPPER_CASE
-        //DONE убрала
-        // TODO 2. Что мы экономим, реализуя findPageElement(s) вместо прямого использования webDriver.findElement(s)?
-        // ANSWER: в нашей имплементации скролл к элементу добавлен, если его сходу нет на странице
-        WebElement searchBox = findPageElement(this.searchBox);
-        // TODO: У нас wait-ы в следующем уроке,
-        //  по заданию нам тут только построить локаторы и найти элементы, зачем сюда тащить заполнение
-        //DONE перенесла это в четвертый урок, где уже есть ожидания
-        waitElementToBeClickable(searchBox);
         searchBox.sendKeys(searchRequest);
 
         // click "Search" button
@@ -55,10 +41,6 @@ public class Lesson4Test extends BaseTest{
         }
 
         log.info("Book titles for search request are found");
-
-        //close browser
-        // TODO: Это tearDown
-        // DONE: убрала
     }
 
 }

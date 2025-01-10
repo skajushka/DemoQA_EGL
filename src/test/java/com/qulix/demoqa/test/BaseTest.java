@@ -15,7 +15,6 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-//TODO Класс висит в воздухе, хотя по идее может быть использован уже с первых занятий
 //TODO Корректнее внутри BaseTest класса оставить реализацию только методов прямо влияющих на ход выполнения теста
 //DONE Добавила наследование от этого класса для всех тестовых
 // перенесла сюда методы, которые нужны для всех тестов
@@ -38,9 +37,6 @@ public abstract class BaseTest {
     @Step("Открытие страницы {linkUrl}")
     public void openWebsite(String linkURL) {
         webDriver.get(linkURL);
-        // TODO А вот этого стоит отучать сходу. Есть @Log4j/@Log4j2 из lombok
-        //  Весь вывод в консоль только через лог, никаких System.out.println
-        // ANSWER: а вот так, через slf4j, норм?
         log.info("Website is opened");
     }
 

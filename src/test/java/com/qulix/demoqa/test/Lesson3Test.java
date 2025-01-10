@@ -9,25 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
 
-// TODO: Лекция 2 у нас про testNG и формально мы еще не знаем кто и что такое Selenium.
-//   Потому для этого урока логичнее сделать пример, в котором нет Selenium
-//   Можно, например, написать свой класс com.qulix.demoqa.Calculator
-//       .plus(x,y)
-//       .multiply(x,y)
-//       .divide(x,y)
-//       .minus(x,y)
-// DONE: сделала класс калькулятора, начала реализацию теста для него (Lesson2Test)
-
-//
-// TODO:  И далее на примерах показать и dataDriven подход и группы
-//  (например, negativeValues, decimalValues, negativeTests, positiveTests)
-//  и через разные варианты testng.xml показать как можно управлять ходом выполнения через XML
-//
-// TODO: По-хорошему тут показать максимально работу разных аннотаций
-// DONE: сделано для аннотаций @data-provider, @parameters
 public class Lesson3Test extends BaseTest {
 
     WebDriver webDriver;
@@ -50,14 +32,9 @@ public class Lesson3Test extends BaseTest {
         verifyElementsOnPage();
     }
 
-    // TODO: Тут и везде, @Step обязательно с текстом: @Step("Открытие страницы {linkUrl}")
-    // DONE: добавила текст
-    // TODO: linkUrl, а не linkURL. Тоже везде, где встречается
-    // DONE: поменяла linkURL на linkUrl
     @Step ("Открытие страницы {linkUrl}")
     public void openWebsite(String linkUrl) {
         webDriver = new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
         webDriver.manage().window().maximize();
         webDriver.get(linkUrl);
         log.info("Website is opened.");
