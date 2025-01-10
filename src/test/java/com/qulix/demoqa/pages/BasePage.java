@@ -1,11 +1,9 @@
 package com.qulix.demoqa.pages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
@@ -18,24 +16,14 @@ public class BasePage {
     }
 
     protected WebElement findPageElement(By locator) {
-        return webDriver.findElement(locator);
-    }
+        WebElement webElement = webDriver.findElement(locator);
 
-    @Step
-    protected boolean isElementDisplayed(WebElement webElement) {
-        if (webElement.isDisplayed()) {
-            System.out.println("Element is displayed");
-            return true;
-        } else {
-            throw new NoSuchElementException("Element is not displayed");
+        if (!webElement.isDisplayed()) {
+            Actions actions = new Actions(webDriver);
+            actions.moveToElement(webElement).build().perform();
         }
-    }
 
-    @Step
-    protected void verifyElementIsDisplayed(WebElement webElement) {
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(webElement.isDisplayed(), webElement.getText()+" card is displayed");
-        softAssert.assertAll();
+        return webElement;
     }
 
      public List<WebElement> findPageElements(By locator) {
