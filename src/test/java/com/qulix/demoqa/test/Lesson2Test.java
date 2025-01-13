@@ -12,8 +12,8 @@ public class Lesson2Test {
     Calculator calculator;
 
     @BeforeMethod
-    public Calculator setUp() {
-        return calculator = new Calculator();
+    public void setUp() {
+        calculator = new Calculator();
     }
 
 /*    @Parameters({"firstNumber", "secondNumber", "expResult"})
