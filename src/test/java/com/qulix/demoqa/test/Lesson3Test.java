@@ -14,9 +14,6 @@ public class Lesson3Test extends BaseTest {
 
     WebDriver webDriver;
 
-    // TODO Пока можно не загоняться на config file и переменные.
-    //  Но хотя бы вынести в отдельный класс типа Configuration или Environment стоит
-    // DONE, перенесла в класс Environment
     //Locators
     private final By practiceFormTitle = By.xpath("//h1[contains(text(), 'Practice Form')]");
     private final By registrationFormTitle = By.xpath("//h5[contains(text(), 'Student Registration Form')]");

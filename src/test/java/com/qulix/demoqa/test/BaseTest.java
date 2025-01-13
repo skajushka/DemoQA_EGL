@@ -15,13 +15,6 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-//TODO Корректнее внутри BaseTest класса оставить реализацию только методов прямо влияющих на ход выполнения теста
-//DONE Добавила наследование от этого класса для всех тестовых
-// перенесла сюда методы, которые нужны для всех тестов
-//TODO Вот такие common вещи типа openWebSite стоит реализовывать, например, в Steps классе, или какой-нить BrowserActions
-//ANSWER мне показалось логичным поместить его в этом классе, потому что он переиспользуется в каждом тесте
-// не поняла, что ты имеешь в виду под Steps классом
-
 public abstract class BaseTest {
 
     static final Logger log = LoggerFactory.getLogger(BaseTest.class);

@@ -19,8 +19,8 @@ public class BasePage {
         WebElement webElement = webDriver.findElement(locator);
 
         if (!webElement.isDisplayed()) {
-            Actions actions = new Actions(webDriver);
-            actions.moveToElement(webElement).build().perform();
+            JavascriptExecutor js = (JavascriptExecutor) webDriver;
+            js.executeScript("arguments[0].scrollIntoView();", webElement);
         }
 
         return webElement;
