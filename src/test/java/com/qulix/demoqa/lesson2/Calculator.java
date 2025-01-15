@@ -1,4 +1,4 @@
-package com.qulix.demoqa;
+package com.qulix.demoqa.lesson2;
 
 public class Calculator {
 

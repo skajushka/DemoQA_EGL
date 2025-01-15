@@ -1,6 +1,6 @@
-package com.qulix.demoqa.test;
+package com.qulix.demoqa.lesson2.test;
 
-import com.qulix.demoqa.Calculator;
+import com.qulix.demoqa.lesson2.Calculator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;

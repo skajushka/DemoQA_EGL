@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-<!--    <listeners>
+    <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
-    </listeners>-->
+    </listeners>
     <test name="CalculatorTest">
         <classes>
-            <class name="com.qulix.demoqa.test.Lesson2Test"/>
+            <class name="com.qulix.demoqa.lesson2.test.Lesson2Test"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

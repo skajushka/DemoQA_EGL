@@ -1,14 +1,14 @@
-package com.qulix.demoqa.test;
+package com.qulix.demoqa.lesson5.test;
 
+import com.qulix.demoqa.lesson5.utils.Environment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import com.qulix.demoqa.utils.Environment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lesson4Test extends BaseTest{
+public class Lesson5BookStoreTest extends BaseTest {
 
     private final String searchRequest = "git";
     //Locators
