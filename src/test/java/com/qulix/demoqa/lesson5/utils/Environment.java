@@ -1,4 +1,4 @@
-package com.qulix.demoqa.utils;
+package com.qulix.demoqa.lesson5.utils;
 
 public class Environment {
 

@@ -6,7 +6,7 @@
                 <parameter name="secondNumber" value="3"/>
                 <parameter name="expResult" value="5"/>
         <classes>
-            <class name="com.qulix.demoqa.test.Lesson2Test"/>
+            <class name="com.qulix.demoqa.lesson2.test.Lesson2Test"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

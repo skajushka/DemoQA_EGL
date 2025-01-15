@@ -1,6 +1,6 @@
-package com.qulix.demoqa.test;
+package com.qulix.demoqa.lesson3.test;
 
-import com.qulix.demoqa.utils.Environment;
+import com.qulix.demoqa.lesson3.utils.Environment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
